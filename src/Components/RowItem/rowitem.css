@@ -1,0 +1,10 @@
+.postercontainer__image {
+  height: 200px;
+  object-fit: contain;
+  padding: 0.5rem;
+  transition: transform 200ms;
+}
+
+.postercontainer__image:hover {
+  transform: scale(1.08);
+}

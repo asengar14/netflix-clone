@@ -1,0 +1,16 @@
+.row__list {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+.row__list::-webkit-scrollbar {
+  height: 20px;
+}
+.row__title {
+  color: white;
+  font-size: large;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
