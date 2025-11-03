@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import { useStore } from "react-redux";
 
 function NavBar(props) {
   const [show, handleShow] = useState(false);

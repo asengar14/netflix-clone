@@ -1,4 +1,4 @@
-const API = "19fce9e252a152b8b3a79d037e603e3f";
+const API = process.env.REACT_APP_API_KEY;
 export const requests = {
   trending: `trending/all/day?api_key=${API}`,
   netflixOriginals: `discover/tv?api_key=${API}&language=en-US&sort_by=popularity.desc`,

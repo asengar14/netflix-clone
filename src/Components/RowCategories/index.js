@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as ActionType from "../../Actions";
-import { connect, useStore } from "react-redux";
+import { connect } from "react-redux";
 import RowItem from "../RowItem";
 import "./row-categories.css";
 import Youtube from "react-youtube";
@@ -21,7 +21,7 @@ function RowCategories(props) {
 
   const handlePosterClick = (movie) => {
     const title = movie?.name || movie?.original_name || movie?.title;
-    if (title != videoTitlePrevious) {
+  if (title !== videoTitlePrevious) {
       movieTrailor(title || "")
         .then((url) => {
           const params = new URLSearchParams(new URL(url).search);
