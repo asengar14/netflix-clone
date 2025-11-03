@@ -49,8 +49,6 @@ cmd /c npm install
 REACT_APP_API_KEY=your_tmdb_api_key_here
 ```
 
-> Note: The project currently contains a hard-coded API key in `src/Utils/requests.js` for the original PoC. For security and portability, replace it by reading from `process.env.REACT_APP_API_KEY` as shown above.
-
 4. Start the dev server:
 
 ```cmd
