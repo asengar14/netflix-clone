@@ -1,3 +1,112 @@
+# Netflix Clone (React)
+
+Live demo: https://netflix-clone-mu-two-78.vercel.app/
+
+A small Netflix-like UI built as a proof-of-concept using React, Redux Toolkit and redux-saga for async data fetching. This repo was modernized to React 18 and Redux Toolkit while preserving the existing saga-based fetching logic.
+
+---
+
+## What this project shows
+
+- A responsive movie/TV browsing UI using TheMovieDB API (client-side only).
+- Category rows and a banner like Netflix's UI.
+- Clicking a poster attempts to open the trailer using `movie-trailer` and `react-youtube`.
+- Global state managed with Redux Toolkit slice + sagas (existing saga logic preserved).
+
+---
+
+## Tech stack
+
+- React 18
+- Redux Toolkit (slice + configureStore)
+- react-redux (hooks: `useDispatch`, `useSelector`)
+- redux-saga for side effects
+- Axios for API requests
+- react-scripts (Create React App)
+
+---
+
+## Prerequisites
+
+- Node.js 16+ (recommended)
+- npm (comes with Node.js)
+
+---
+
+## Quick start (Windows / cmd)
+
+1. Clone the repo and open a terminal in the project folder.
+
+2. Install dependencies:
+
+```cmd
+cmd /c npm install
+```
+
+3. Create a `.env` file in the project root with your TheMovieDB API key (recommended):
+
+```
+REACT_APP_API_KEY=your_tmdb_api_key_here
+```
+
+> Note: The project currently contains a hard-coded API key in `src/Utils/requests.js` for the original PoC. For security and portability, replace it by reading from `process.env.REACT_APP_API_KEY` as shown above.
+
+4. Start the dev server:
+
+```cmd
+cmd /c npm start
+```
+
+5. Open http://localhost:3000 in your browser.
+
+---
+
+## Available scripts
+
+- `npm start` — start dev server
+- `npm run build` — build for production
+- `npm test` — run tests (CRA setup)
+- `npm run eject` — eject CRA config (one-way)
+
+---
+
+## Project structure (high level)
+
+- `src/`
+  - `Components/` — React components (Banner, NavBar, RowCategories, RowItem)
+  - `Utils/` — helper files (`axios.js`, `requests.js`)
+  - `store/` — Redux Toolkit slice and store configuration
+  - `Sagas/` — saga watchers and workers
+  - `Reducers/`, `Actions/` — legacy action constants and reducer (partially migrated)
+
+---
+
+## Notes about modernization
+
+- The repo was modernized from older React/Redux patterns to use React 18 and Redux Toolkit.
+- `src/store/moviesSlice.js` is a Toolkit slice that consumes the existing `FETCH_SUCCESS` actions dispatched by sagas (keeps compatibility).
+- Components were moved from `connect()` to React-Redux hooks (`useDispatch`, `useSelector`).
+
+---
+
+## Security & dependencies
+
+- There are a few audit warnings reported by `npm audit` during dependency upgrades. Run `npm audit` and `npm audit fix` to triage and patch non-breaking issues.
+
+---
+
+## Contributing
+
+If you'd like to contribute or continue modernizing this project, suggested next steps:
+
+1. Replace saga + axios fetching with RTK Query for simpler data fetching and caching (optional).
+2. Update testing libraries to current versions and add unit/integration tests.
+3. Remove any hard-coded API keys and ensure `.env` is used. Add `.env.local.example` with required variables.
+4. Consider migrating off Create React App to Vite for a faster dev experience.
+
+---
+
+If you want, I can create a branch with the README update committed and push a PR — tell me how you'd like it committed.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
