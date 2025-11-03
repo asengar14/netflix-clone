@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import * as ActionType from "../../Actions";
-import { connect } from "react-redux";
+// legacy action types are no longer referenced directly in this component
 import RowItem from "../RowItem";
 import "./row-categories.css";
 import Youtube from "react-youtube";
@@ -53,24 +52,4 @@ function RowCategories(props) {
   );
 }
 
-const mapActionToProps = (dispatch) => {
-  return {
-    fetchRequest: (fetchTypeRequest, serviceName) => {
-      dispatch({
-        type: ActionType.FETCH_ACTION,
-        fetchTypeRequest: fetchTypeRequest,
-        serviceName: serviceName,
-      });
-    },
-  };
-};
-
-const mapStateToProps = (state) => {
-  return {
-    getNetflixOriginals: state.netflixOriginals,
-    getTopRated: state.topRated,
-    getTrending: state.trending,
-  };
-};
-
-export default connect(mapStateToProps, mapActionToProps)(RowCategories);
+export default RowCategories;
